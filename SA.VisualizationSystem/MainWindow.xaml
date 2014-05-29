@@ -1,0 +1,37 @@
+﻿<Window x:Class="SA.VisualizationSystem.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:loc="clr-namespace:SA.VisualizationSystem.ViewModel"
+        xmlns:view="clr-namespace:SA.VisualizationSystem.View"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance loc:MainVm}"
+        Title="MainWindow" Height="600" Width="750">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Menu FontSize="20" VerticalAlignment="Top" Grid.Row="0" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+            <MenuItem Header="ФАЙЛ"/>
+            <MenuItem Header="СРЕДСТВА">
+                <MenuItem Header="Общие" VerticalAlignment="Center" Width="Auto"
+                          Command="{Binding MenuClick}" CommandParameter="GeneralView"/>
+            </MenuItem>
+        </Menu>
+
+        <ContentControl Grid.Row="1" Content="{Binding CurrentView}">
+            <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type loc:GeneralVm}">
+                    <view:GeneralView/>
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>
+        
+    </Grid>
+</Window>
