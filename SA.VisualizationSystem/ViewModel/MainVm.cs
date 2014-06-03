@@ -36,8 +36,8 @@ namespace SA.VisualizationSystem.ViewModel
         {
             var menuStr = t as string;
 
-            if (menuStr.Equals("GeneralView", StringComparison.InvariantCulture))
-                CurrentView = IoC.Resolve<GeneralVm>();
+            if (menuStr.Equals("StatesView", StringComparison.InvariantCulture))
+                CurrentView = IoC.Resolve<StatesVm>();
         }
 
         private object _currentView;

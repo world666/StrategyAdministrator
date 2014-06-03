@@ -18,17 +18,17 @@
         </Grid.ColumnDefinitions>
 
         <Menu FontSize="20" VerticalAlignment="Top" Grid.Row="0" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
-            <MenuItem Header="ФАЙЛ"/>
-            <MenuItem Header="СРЕДСТВА">
-                <MenuItem Header="Общие" VerticalAlignment="Center" Width="Auto"
-                          Command="{Binding MenuClick}" CommandParameter="GeneralView"/>
+            <MenuItem Header="FILE"/>
+            <MenuItem Header="TABLES">
+                <MenuItem Header="STATES" VerticalAlignment="Center" Width="Auto"
+                          Command="{Binding MenuClick}" CommandParameter="StatesView"/>
             </MenuItem>
         </Menu>
 
         <ContentControl Grid.Row="1" Content="{Binding CurrentView}">
             <ContentControl.Resources>
-                <DataTemplate DataType="{x:Type loc:GeneralVm}">
-                    <view:GeneralView/>
+                <DataTemplate DataType="{x:Type loc:StatesVm}">
+                    <view:StatesView/>
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>

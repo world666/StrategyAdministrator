@@ -18,9 +18,9 @@ namespace SA.VisualizationSystem.View
     /// <summary>
     /// Interaction logic for GeneralView.xaml
     /// </summary>
-    public partial class GeneralView : UserControl
+    public partial class StatesView : UserControl
     {
-        public GeneralView()
+        public StatesView()
         {
             InitializeComponent();
         }

@@ -1,0 +1,14 @@
+<DataGrid ItemsSource="{Binding ListCollection}" CanUserReorderColumns="False" 
+                  CanUserSortColumns="True" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Food" Width="Auto"
+                            Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Quantity" IsReadOnly="False"
+                            Binding="{Binding Surname}" />
+
+                <DataGridComboBoxColumn Header="ComboBoxColum"
+                                        ItemsSource="{Binding Source={x:Static general:StatesVm.Positions}}"
+                                        SelectedValueBinding="{Binding States}"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
