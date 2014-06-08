@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="RegionService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/DataRepository.Models" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/StrategyServices.Regions" />
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xs:element name="GetRegionsByLanguage">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DataRepository.Models" minOccurs="0" name="lang" type="q1:Language" />
+            <xs:element minOccurs="0" name="stateId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetRegionsByLanguageResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/StrategyServices.Regions" minOccurs="0" name="GetRegionsByLanguageResult" nillable="true" type="q2:ArrayOfRegionData" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetRegions">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="stateId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetRegionsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/StrategyServices.Regions" minOccurs="0" name="GetRegionsResult" nillable="true" type="q3:ArrayOfRegionData" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddRegions">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/StrategyServices.Regions" minOccurs="0" name="regionsList" nillable="true" type="q4:ArrayOfRegionData" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddRegionsResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="EditRegions">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/StrategyServices.Regions" minOccurs="0" name="regionsList" nillable="true" type="q5:ArrayOfRegionData" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="EditRegionsResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteRegions">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="regionIds" nillable="true" type="q6:ArrayOfint" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteRegionsResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DataRepository.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DataRepository.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:simpleType name="Language">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="English" />
+          <xs:enumeration value="Russian" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="Language" nillable="true" type="tns:Language" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/StrategyServices.Regions" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/StrategyServices.Regions" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xs:complexType name="ArrayOfRegionData">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="RegionData" nillable="true" type="tns:RegionData" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfRegionData" nillable="true" type="tns:ArrayOfRegionData" />
+      <xs:complexType name="RegionData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Cx" type="xs:double" />
+          <xs:element minOccurs="0" name="GrossProfitTax" type="xs:double" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Industry" type="xs:double" />
+          <xs:element minOccurs="0" name="ProfitTax" type="xs:double" />
+          <xs:element minOccurs="0" name="RegionsNames" nillable="true" type="xs:string" />
+          <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RegionsNamesList" nillable="true" type="q1:ArrayOfstring" />
+          <xs:element minOccurs="0" name="ServicesSector" type="xs:double" />
+          <xs:element minOccurs="0" name="StateId" type="xs:int" />
+          <xs:element minOccurs="0" name="Tourism" type="xs:double" />
+          <xs:element minOccurs="0" name="Trade" type="xs:double" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="RegionData" nillable="true" type="tns:RegionData" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfstring">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
+      <xs:complexType name="ArrayOfint">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="int" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfint" nillable="true" type="tns:ArrayOfint" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IRegionService_GetRegionsByLanguage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionsByLanguage" />
+  </wsdl:message>
+  <wsdl:message name="IRegionService_GetRegionsByLanguage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionsByLanguageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegionService_GetRegions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegions" />
+  </wsdl:message>
+  <wsdl:message name="IRegionService_GetRegions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegionService_AddRegions_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRegions" />
+  </wsdl:message>
+  <wsdl:message name="IRegionService_AddRegions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRegionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegionService_EditRegions_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditRegions" />
+  </wsdl:message>
+  <wsdl:message name="IRegionService_EditRegions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditRegionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRegionService_DeleteRegions_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRegions" />
+  </wsdl:message>
+  <wsdl:message name="IRegionService_DeleteRegions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRegionsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IRegionService">
+    <wsdl:operation name="GetRegionsByLanguage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegionService/GetRegionsByLanguage" message="tns:IRegionService_GetRegionsByLanguage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegionService/GetRegionsByLanguageResponse" message="tns:IRegionService_GetRegionsByLanguage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegionService/GetRegions" message="tns:IRegionService_GetRegions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegionService/GetRegionsResponse" message="tns:IRegionService_GetRegions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRegions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegionService/AddRegions" message="tns:IRegionService_AddRegions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegionService/AddRegionsResponse" message="tns:IRegionService_AddRegions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditRegions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegionService/EditRegions" message="tns:IRegionService_EditRegions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegionService/EditRegionsResponse" message="tns:IRegionService_EditRegions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRegions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRegionService/DeleteRegions" message="tns:IRegionService_DeleteRegions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRegionService/DeleteRegionsResponse" message="tns:IRegionService_DeleteRegions_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IRegionService" type="tns:IRegionService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetRegionsByLanguage">
+      <soap:operation soapAction="http://tempuri.org/IRegionService/GetRegionsByLanguage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegions">
+      <soap:operation soapAction="http://tempuri.org/IRegionService/GetRegions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRegions">
+      <soap:operation soapAction="http://tempuri.org/IRegionService/AddRegions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditRegions">
+      <soap:operation soapAction="http://tempuri.org/IRegionService/EditRegions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRegions">
+      <soap:operation soapAction="http://tempuri.org/IRegionService/DeleteRegions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RegionService">
+    <wsdl:port name="BasicHttpBinding_IRegionService" binding="tns:BasicHttpBinding_IRegionService">
+      <soap:address location="http://127.0.0.1/WCF/regions.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

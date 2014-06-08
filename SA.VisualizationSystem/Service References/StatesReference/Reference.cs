@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SA.VisualizationSystem.ServiceReference {
+namespace SA.VisualizationSystem.StatesReference {
     using System.Runtime.Serialization;
     using System;
     
@@ -50,6 +50,9 @@ namespace SA.VisualizationSystem.ServiceReference {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string StatesNamesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string[] StatesNamesListField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -139,6 +142,19 @@ namespace SA.VisualizationSystem.ServiceReference {
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string[] StatesNamesList {
+            get {
+                return this.StatesNamesListField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StatesNamesListField, value) != true)) {
+                    this.StatesNamesListField = value;
+                    this.RaisePropertyChanged("StatesNamesList");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -150,32 +166,32 @@ namespace SA.VisualizationSystem.ServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.IStateService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="StatesReference.IStateService")]
     public interface IStateService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStateService/GetStatesByLanguage", ReplyAction="http://tempuri.org/IStateService/GetStatesByLanguageResponse")]
-        SA.VisualizationSystem.ServiceReference.StateData[] GetStatesByLanguage(SA.VisualizationSystem.ServiceReference.Language lang);
+        SA.VisualizationSystem.StatesReference.StateData[] GetStatesByLanguage(SA.VisualizationSystem.StatesReference.Language lang);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStateService/GetStatesByLanguage", ReplyAction="http://tempuri.org/IStateService/GetStatesByLanguageResponse")]
-        System.Threading.Tasks.Task<SA.VisualizationSystem.ServiceReference.StateData[]> GetStatesByLanguageAsync(SA.VisualizationSystem.ServiceReference.Language lang);
+        System.Threading.Tasks.Task<SA.VisualizationSystem.StatesReference.StateData[]> GetStatesByLanguageAsync(SA.VisualizationSystem.StatesReference.Language lang);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStateService/GetStates", ReplyAction="http://tempuri.org/IStateService/GetStatesResponse")]
-        SA.VisualizationSystem.ServiceReference.StateData[] GetStates();
+        SA.VisualizationSystem.StatesReference.StateData[] GetStates();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStateService/GetStates", ReplyAction="http://tempuri.org/IStateService/GetStatesResponse")]
-        System.Threading.Tasks.Task<SA.VisualizationSystem.ServiceReference.StateData[]> GetStatesAsync();
+        System.Threading.Tasks.Task<SA.VisualizationSystem.StatesReference.StateData[]> GetStatesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStateService/AddStates", ReplyAction="http://tempuri.org/IStateService/AddStatesResponse")]
-        void AddStates(SA.VisualizationSystem.ServiceReference.StateData[] statesList);
+        void AddStates(SA.VisualizationSystem.StatesReference.StateData[] statesList);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStateService/AddStates", ReplyAction="http://tempuri.org/IStateService/AddStatesResponse")]
-        System.Threading.Tasks.Task AddStatesAsync(SA.VisualizationSystem.ServiceReference.StateData[] statesList);
+        System.Threading.Tasks.Task AddStatesAsync(SA.VisualizationSystem.StatesReference.StateData[] statesList);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStateService/EditStates", ReplyAction="http://tempuri.org/IStateService/EditStatesResponse")]
-        void EditStates(SA.VisualizationSystem.ServiceReference.StateData[] states);
+        void EditStates(SA.VisualizationSystem.StatesReference.StateData[] statesList);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStateService/EditStates", ReplyAction="http://tempuri.org/IStateService/EditStatesResponse")]
-        System.Threading.Tasks.Task EditStatesAsync(SA.VisualizationSystem.ServiceReference.StateData[] states);
+        System.Threading.Tasks.Task EditStatesAsync(SA.VisualizationSystem.StatesReference.StateData[] statesList);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStateService/DeleteStates", ReplyAction="http://tempuri.org/IStateService/DeleteStatesResponse")]
         void DeleteStates(int[] stateIds);
@@ -185,12 +201,12 @@ namespace SA.VisualizationSystem.ServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IStateServiceChannel : SA.VisualizationSystem.ServiceReference.IStateService, System.ServiceModel.IClientChannel {
+    public interface IStateServiceChannel : SA.VisualizationSystem.StatesReference.IStateService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class StateServiceClient : System.ServiceModel.ClientBase<SA.VisualizationSystem.ServiceReference.IStateService>, SA.VisualizationSystem.ServiceReference.IStateService {
+    public partial class StateServiceClient : System.ServiceModel.ClientBase<SA.VisualizationSystem.StatesReference.IStateService>, SA.VisualizationSystem.StatesReference.IStateService {
         
         public StateServiceClient() {
         }
@@ -211,36 +227,36 @@ namespace SA.VisualizationSystem.ServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public SA.VisualizationSystem.ServiceReference.StateData[] GetStatesByLanguage(SA.VisualizationSystem.ServiceReference.Language lang) {
+        public SA.VisualizationSystem.StatesReference.StateData[] GetStatesByLanguage(SA.VisualizationSystem.StatesReference.Language lang) {
             return base.Channel.GetStatesByLanguage(lang);
         }
         
-        public System.Threading.Tasks.Task<SA.VisualizationSystem.ServiceReference.StateData[]> GetStatesByLanguageAsync(SA.VisualizationSystem.ServiceReference.Language lang) {
+        public System.Threading.Tasks.Task<SA.VisualizationSystem.StatesReference.StateData[]> GetStatesByLanguageAsync(SA.VisualizationSystem.StatesReference.Language lang) {
             return base.Channel.GetStatesByLanguageAsync(lang);
         }
         
-        public SA.VisualizationSystem.ServiceReference.StateData[] GetStates() {
+        public SA.VisualizationSystem.StatesReference.StateData[] GetStates() {
             return base.Channel.GetStates();
         }
         
-        public System.Threading.Tasks.Task<SA.VisualizationSystem.ServiceReference.StateData[]> GetStatesAsync() {
+        public System.Threading.Tasks.Task<SA.VisualizationSystem.StatesReference.StateData[]> GetStatesAsync() {
             return base.Channel.GetStatesAsync();
         }
         
-        public void AddStates(SA.VisualizationSystem.ServiceReference.StateData[] statesList) {
+        public void AddStates(SA.VisualizationSystem.StatesReference.StateData[] statesList) {
             base.Channel.AddStates(statesList);
         }
         
-        public System.Threading.Tasks.Task AddStatesAsync(SA.VisualizationSystem.ServiceReference.StateData[] statesList) {
+        public System.Threading.Tasks.Task AddStatesAsync(SA.VisualizationSystem.StatesReference.StateData[] statesList) {
             return base.Channel.AddStatesAsync(statesList);
         }
         
-        public void EditStates(SA.VisualizationSystem.ServiceReference.StateData[] states) {
-            base.Channel.EditStates(states);
+        public void EditStates(SA.VisualizationSystem.StatesReference.StateData[] statesList) {
+            base.Channel.EditStates(statesList);
         }
         
-        public System.Threading.Tasks.Task EditStatesAsync(SA.VisualizationSystem.ServiceReference.StateData[] states) {
-            return base.Channel.EditStatesAsync(states);
+        public System.Threading.Tasks.Task EditStatesAsync(SA.VisualizationSystem.StatesReference.StateData[] statesList) {
+            return base.Channel.EditStatesAsync(statesList);
         }
         
         public void DeleteStates(int[] stateIds) {

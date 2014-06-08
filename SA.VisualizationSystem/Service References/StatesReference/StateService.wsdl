@@ -46,7 +46,7 @@
       <xs:element name="EditStates">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/StrategyServices.States" minOccurs="0" name="states" nillable="true" type="q5:ArrayOfStateData" />
+            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/StrategyServices.States" minOccurs="0" name="statesList" nillable="true" type="q5:ArrayOfStateData" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -119,6 +119,7 @@
       <xs:element name="Language" nillable="true" type="tns:Language" />
     </xs:schema>
     <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/StrategyServices.States" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/StrategyServices.States" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
       <xs:complexType name="ArrayOfStateData">
         <xs:sequence>
           <xs:element minOccurs="0" maxOccurs="unbounded" name="StateData" nillable="true" type="tns:StateData" />
@@ -133,11 +134,18 @@
           <xs:element minOccurs="0" name="LicensesExcises" type="xs:double" />
           <xs:element minOccurs="0" name="NewsInfluenceCoef" type="xs:double" />
           <xs:element minOccurs="0" name="StatesNames" nillable="true" type="xs:string" />
+          <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StatesNamesList" nillable="true" type="q1:ArrayOfstring" />
         </xs:sequence>
       </xs:complexType>
       <xs:element name="StateData" nillable="true" type="tns:StateData" />
     </xs:schema>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfstring">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
       <xs:complexType name="ArrayOfint">
         <xs:sequence>
           <xs:element minOccurs="0" maxOccurs="unbounded" name="int" type="xs:int" />

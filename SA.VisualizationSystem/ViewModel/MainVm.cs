@@ -38,6 +38,8 @@ namespace SA.VisualizationSystem.ViewModel
 
             if (menuStr.Equals("StatesView", StringComparison.InvariantCulture))
                 CurrentView = IoC.Resolve<StatesVm>();
+            if (menuStr.Equals("RegionsView", StringComparison.InvariantCulture))
+                CurrentView = IoC.Resolve<RegionsVm>();
         }
 
         private object _currentView;
