@@ -27,9 +27,6 @@
         </Grid.ColumnDefinitions>
 
         <ComboBox Grid.Row="1" Grid.Column="2" SelectedValue="{Binding CurrentStateName}" ItemsSource="{Binding Source={x:Static general:RegionsVm.StatesNames}}"></ComboBox>
-        <Button Command="{Binding FindClick}" Grid.Row="1" Grid.Column="4">
-            Find
-        </Button>
         <DataGrid FontSize="19" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" ItemsSource="{Binding ViewRegionsList}" 
                   CanUserReorderColumns="False" AutoGenerateColumns="False" 
                   CanUserSortColumns="True">

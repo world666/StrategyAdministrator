@@ -40,6 +40,8 @@ namespace SA.VisualizationSystem.ViewModel
                 CurrentView = IoC.Resolve<StatesVm>();
             if (menuStr.Equals("RegionsView", StringComparison.InvariantCulture))
                 CurrentView = IoC.Resolve<RegionsVm>();
+            if (menuStr.Equals("BusinessesView", StringComparison.InvariantCulture))
+                CurrentView = IoC.Resolve<BusinessesVm>();
         }
 
         private object _currentView;

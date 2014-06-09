@@ -17,6 +17,7 @@ namespace SA.VisualizationSystem.ViewModel
     {
         public StatesVm()
         {
+            ViewStatesList = new ObservableCollection<StateData>();
             Initialization();
         }
         private void SaveClickHandler()
@@ -36,7 +37,6 @@ namespace SA.VisualizationSystem.ViewModel
                 _statesServiceClient.DeleteStates(deleteStateList);
                 _statesServiceClient.EditStates(editStateList);
                 _statesServiceClient.Close();
-                Initialization();
                 MessageBox.Show("All changes were successfully accepted");
             }
             catch (Exception ex)
@@ -49,7 +49,7 @@ namespace SA.VisualizationSystem.ViewModel
         private void Initialization()
         {
             _statesServiceClient = new StateServiceClient();
-            ViewStatesList = new ObservableCollection<StateData>();
+            ViewStatesList.Clear();
             _statesServiceClient.Open();
             _prevStatesList = _statesServiceClient.GetStates().ToList();
             var states = _statesServiceClient.GetStates();

@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="SA.VisualizationSystem.View.BusinessesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:general="clr-namespace:SA.VisualizationSystem.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="600"
+             d:DataContext="{d:DesignInstance general:BusinessesVm}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+
+        <ComboBox Grid.Row="1" Grid.Column="2" SelectedValue="{Binding CurrentStateName}" 
+                  ItemsSource="{Binding Source={x:Static general:BusinessesVm.StatesNames}}" >
+        </ComboBox>
+        <ComboBox Grid.Row="1" Grid.Column="4" SelectedValue="{Binding CurrentRegionName}" 
+                   ItemsSource="{Binding Source={x:Static general:BusinessesVm.RegionsNames}}">
+        </ComboBox>
+        <DataGrid FontSize="19" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="6" ItemsSource="{Binding ViewBusinessList}" 
+                  CanUserReorderColumns="False" AutoGenerateColumns="False" 
+                  CanUserSortColumns="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="BusinessesNames"
+                                Binding="{Binding BusinessesNames}" />
+                <DataGridTextColumn Header="Descriptions"
+                                Binding="{Binding Descriptions}" />
+                <DataGridTextColumn Header="Addresses"
+                                Binding="{Binding Addresses}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Command="{Binding SaveClick}" Grid.Row="5" Grid.Column="6">
+            Save
+        </Button>
+    </Grid>
+</UserControl>

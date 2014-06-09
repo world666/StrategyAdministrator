@@ -18,12 +18,14 @@ namespace SA.VisualizationSystem.ViewModel
     {
         public RegionsVm()
         {
+            ViewRegionsList = new ObservableCollection<RegionData>();
+            StatesNames = new ObservableCollection<string>();
             Initialization();
             FindClickHandler();
         }
         private void Initialization()
         {
-            StatesNames = new ObservableCollection<string>();
+            StatesNames.Clear();
             _statesServiceClient = new StateServiceClient();
             _statesList = new List<StateData>();
             _statesServiceClient.Open();
@@ -53,7 +55,6 @@ namespace SA.VisualizationSystem.ViewModel
                 _regionServiceClient.DeleteRegions(deleteRegionList);
                 _regionServiceClient.EditRegions(editRegionList);
                 _regionServiceClient.Close();
-                Initialization();
                 MessageBox.Show("All changes were successfully accepted");
             }
             catch (Exception ex)
@@ -64,7 +65,7 @@ namespace SA.VisualizationSystem.ViewModel
 
         private void FindClickHandler()
         {
-            ViewRegionsList = new ObservableCollection<RegionData>();
+            ViewRegionsList.Clear();
             _regionServiceClient = new RegionServiceClient();
             _regionServiceClient.Open();
             _prevRegionsList = _regionServiceClient.GetRegions(_statesList.First(st=>st.StatesNames == CurrentStateName).Id).ToList();
@@ -84,30 +85,24 @@ namespace SA.VisualizationSystem.ViewModel
             get { return _saveClickCommand ?? (_saveClickCommand = new RelayCommand(SaveClickHandler)); }
         }
 
-        public ICommand FindClick
-        {
-            get { return _findClickCommand ?? (_findClickCommand = new RelayCommand(FindClickHandler)); }
-        }
-
         public static ObservableCollection<string> StatesNames { get; set; }
-        public string CurrentStateName { get; set; }
 
-        public ObservableCollection<RegionData> ViewRegionsList
-        {
-            get { return _viewRegionList; }
+        private string _currentStateName;
+        public string CurrentStateName {
+            get { return _currentStateName; }
             set
             {
-                _viewRegionList = value;
-                RaisePropertyChanged("ViewRegionsList");
+                _currentStateName = value;
+                FindClickHandler();
+                RaisePropertyChanged("CurrentStateName");
             }
         }
 
+        public ObservableCollection<RegionData> ViewRegionsList { get; set; }
 
-        private ObservableCollection<RegionData> _viewRegionList;
         private List<StateData> _statesList;
         private List<RegionData> _prevRegionsList;
         private RelayCommand _saveClickCommand;
-        private RelayCommand _findClickCommand;
         private StateServiceClient _statesServiceClient;
         private RegionServiceClient _regionServiceClient;
 
