@@ -13,17 +13,6 @@ namespace SA.VisualizationSystem.BusinessesReference {
     using System;
     
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Language", Namespace="http://schemas.datacontract.org/2004/07/DataRepository.Models")]
-    public enum Language : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        English = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Russian = 1,
-    }
-    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BusinessData", Namespace="http://schemas.datacontract.org/2004/07/StrategyServices.Businesses")]
@@ -186,10 +175,10 @@ namespace SA.VisualizationSystem.BusinessesReference {
     public interface IBusinessService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessService/GetBusinessesByLanguage", ReplyAction="http://tempuri.org/IBusinessService/GetBusinessesByLanguageResponse")]
-        SA.VisualizationSystem.BusinessesReference.BusinessData[] GetBusinessesByLanguage(SA.VisualizationSystem.BusinessesReference.Language lang, int regionId);
+        SA.VisualizationSystem.BusinessesReference.BusinessData[] GetBusinessesByLanguage(int languageId, int regionId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessService/GetBusinessesByLanguage", ReplyAction="http://tempuri.org/IBusinessService/GetBusinessesByLanguageResponse")]
-        System.Threading.Tasks.Task<SA.VisualizationSystem.BusinessesReference.BusinessData[]> GetBusinessesByLanguageAsync(SA.VisualizationSystem.BusinessesReference.Language lang, int regionId);
+        System.Threading.Tasks.Task<SA.VisualizationSystem.BusinessesReference.BusinessData[]> GetBusinessesByLanguageAsync(int languageId, int regionId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBusinessService/GetBusinesses", ReplyAction="http://tempuri.org/IBusinessService/GetBusinessesResponse")]
         SA.VisualizationSystem.BusinessesReference.BusinessData[] GetBusinesses(int regionId);
@@ -243,12 +232,12 @@ namespace SA.VisualizationSystem.BusinessesReference {
                 base(binding, remoteAddress) {
         }
         
-        public SA.VisualizationSystem.BusinessesReference.BusinessData[] GetBusinessesByLanguage(SA.VisualizationSystem.BusinessesReference.Language lang, int regionId) {
-            return base.Channel.GetBusinessesByLanguage(lang, regionId);
+        public SA.VisualizationSystem.BusinessesReference.BusinessData[] GetBusinessesByLanguage(int languageId, int regionId) {
+            return base.Channel.GetBusinessesByLanguage(languageId, regionId);
         }
         
-        public System.Threading.Tasks.Task<SA.VisualizationSystem.BusinessesReference.BusinessData[]> GetBusinessesByLanguageAsync(SA.VisualizationSystem.BusinessesReference.Language lang, int regionId) {
-            return base.Channel.GetBusinessesByLanguageAsync(lang, regionId);
+        public System.Threading.Tasks.Task<SA.VisualizationSystem.BusinessesReference.BusinessData[]> GetBusinessesByLanguageAsync(int languageId, int regionId) {
+            return base.Channel.GetBusinessesByLanguageAsync(languageId, regionId);
         }
         
         public SA.VisualizationSystem.BusinessesReference.BusinessData[] GetBusinesses(int regionId) {

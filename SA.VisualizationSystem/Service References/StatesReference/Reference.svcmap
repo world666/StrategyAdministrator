@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="63a58dbc-d6d8-4817-bf8e-92ca26d51ef8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5335aee9-e214-4f7a-bda6-852a353f9097" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,10 +19,15 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://178.216.124.224/WCF/states.svc?singleWsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://127.0.0.1/WCF/states.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="StateService.wsdl" MetadataType="Wsdl" ID="6ac7e813-a9fa-4cbb-8093-41fe328dd2b9" SourceId="1" SourceUrl="http://178.216.124.224/WCF/states.svc?singleWsdl" />
+    <MetadataFile FileName="states.xsd" MetadataType="Schema" ID="760a2698-7c0d-458e-9824-da55f91169a4" SourceId="1" SourceUrl="http://127.0.0.1/WCF/states.svc?xsd=xsd3" />
+    <MetadataFile FileName="states1.xsd" MetadataType="Schema" ID="25d6acfb-c048-4db1-b780-0009cb894328" SourceId="1" SourceUrl="http://127.0.0.1/WCF/states.svc?xsd=xsd2" />
+    <MetadataFile FileName="states.disco" MetadataType="Disco" ID="bd33944d-208a-4086-a76c-b41d2445d70e" SourceId="1" SourceUrl="http://127.0.0.1/WCF/states.svc?disco" />
+    <MetadataFile FileName="states2.xsd" MetadataType="Schema" ID="3b462b0f-f25c-4a03-be4c-29c01bcb012f" SourceId="1" SourceUrl="http://127.0.0.1/WCF/states.svc?xsd=xsd0" />
+    <MetadataFile FileName="states3.xsd" MetadataType="Schema" ID="07814928-5f99-4db8-ad8b-9bcd1b1c724c" SourceId="1" SourceUrl="http://127.0.0.1/WCF/states.svc?xsd=xsd1" />
+    <MetadataFile FileName="StateService.wsdl" MetadataType="Wsdl" ID="06e052de-2779-4ff7-affe-d4bd7e8ff76a" SourceId="1" SourceUrl="http://127.0.0.1/WCF/states.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

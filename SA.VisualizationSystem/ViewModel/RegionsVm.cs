@@ -10,7 +10,6 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using SA.VisualizationSystem.RegionsReference;
 using SA.VisualizationSystem.StatesReference;
-using Language = SA.VisualizationSystem.StatesReference.Language;
 
 namespace SA.VisualizationSystem.ViewModel
 {
@@ -29,7 +28,7 @@ namespace SA.VisualizationSystem.ViewModel
             _statesServiceClient = new StateServiceClient();
             _statesList = new List<StateData>();
             _statesServiceClient.Open();
-            _statesList = _statesServiceClient.GetStatesByLanguage(Language.English).ToList();
+            _statesList = _statesServiceClient.GetStatesByLanguage(1).ToList();
             foreach (var state in _statesList)
             {
                 StatesNames.Add(state.StatesNames);

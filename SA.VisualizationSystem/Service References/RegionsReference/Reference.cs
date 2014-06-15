@@ -13,17 +13,6 @@ namespace SA.VisualizationSystem.RegionsReference {
     using System;
     
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Language", Namespace="http://schemas.datacontract.org/2004/07/DataRepository.Models")]
-    public enum Language : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        English = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Russian = 1,
-    }
-    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RegionData", Namespace="http://schemas.datacontract.org/2004/07/StrategyServices.Regions")]
@@ -234,10 +223,10 @@ namespace SA.VisualizationSystem.RegionsReference {
     public interface IRegionService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRegionService/GetRegionsByLanguage", ReplyAction="http://tempuri.org/IRegionService/GetRegionsByLanguageResponse")]
-        SA.VisualizationSystem.RegionsReference.RegionData[] GetRegionsByLanguage(SA.VisualizationSystem.RegionsReference.Language lang, int stateId);
+        SA.VisualizationSystem.RegionsReference.RegionData[] GetRegionsByLanguage(int languageId, int stateId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRegionService/GetRegionsByLanguage", ReplyAction="http://tempuri.org/IRegionService/GetRegionsByLanguageResponse")]
-        System.Threading.Tasks.Task<SA.VisualizationSystem.RegionsReference.RegionData[]> GetRegionsByLanguageAsync(SA.VisualizationSystem.RegionsReference.Language lang, int stateId);
+        System.Threading.Tasks.Task<SA.VisualizationSystem.RegionsReference.RegionData[]> GetRegionsByLanguageAsync(int languageId, int stateId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRegionService/GetRegions", ReplyAction="http://tempuri.org/IRegionService/GetRegionsResponse")]
         SA.VisualizationSystem.RegionsReference.RegionData[] GetRegions(int stateId);
@@ -291,12 +280,12 @@ namespace SA.VisualizationSystem.RegionsReference {
                 base(binding, remoteAddress) {
         }
         
-        public SA.VisualizationSystem.RegionsReference.RegionData[] GetRegionsByLanguage(SA.VisualizationSystem.RegionsReference.Language lang, int stateId) {
-            return base.Channel.GetRegionsByLanguage(lang, stateId);
+        public SA.VisualizationSystem.RegionsReference.RegionData[] GetRegionsByLanguage(int languageId, int stateId) {
+            return base.Channel.GetRegionsByLanguage(languageId, stateId);
         }
         
-        public System.Threading.Tasks.Task<SA.VisualizationSystem.RegionsReference.RegionData[]> GetRegionsByLanguageAsync(SA.VisualizationSystem.RegionsReference.Language lang, int stateId) {
-            return base.Channel.GetRegionsByLanguageAsync(lang, stateId);
+        public System.Threading.Tasks.Task<SA.VisualizationSystem.RegionsReference.RegionData[]> GetRegionsByLanguageAsync(int languageId, int stateId) {
+            return base.Channel.GetRegionsByLanguageAsync(languageId, stateId);
         }
         
         public SA.VisualizationSystem.RegionsReference.RegionData[] GetRegions(int stateId) {

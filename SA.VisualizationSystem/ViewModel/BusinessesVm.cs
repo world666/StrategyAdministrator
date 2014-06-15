@@ -11,7 +11,6 @@ using GalaSoft.MvvmLight.Command;
 using SA.VisualizationSystem.BusinessesReference;
 using SA.VisualizationSystem.RegionsReference;
 using SA.VisualizationSystem.StatesReference;
-using Language = SA.VisualizationSystem.StatesReference.Language;
 
 namespace SA.VisualizationSystem.ViewModel
 {
@@ -29,7 +28,7 @@ namespace SA.VisualizationSystem.ViewModel
             StatesNames.Clear();
             _statesServiceClient = new StateServiceClient();
             _statesServiceClient.Open();
-            _statesList = _statesServiceClient.GetStatesByLanguage(Language.English).ToList();
+            _statesList = _statesServiceClient.GetStatesByLanguage(1).ToList();
             foreach (var state in _statesList)
             {
                 StatesNames.Add(state.StatesNames);
@@ -85,7 +84,7 @@ namespace SA.VisualizationSystem.ViewModel
             RegionsNames.Clear();
             _regionServiceClient = new RegionServiceClient();
             _regionServiceClient.Open();
-            _regionsList = _regionServiceClient.GetRegionsByLanguage(RegionsReference.Language.English,
+            _regionsList = _regionServiceClient.GetRegionsByLanguage(1,
                 _statesList.Find(st => st.StatesNames == CurrentStateName).Id).ToList();
             if (_regionsList.Count == 0)
             {

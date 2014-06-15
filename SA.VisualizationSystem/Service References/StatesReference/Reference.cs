@@ -13,17 +13,6 @@ namespace SA.VisualizationSystem.StatesReference {
     using System;
     
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Language", Namespace="http://schemas.datacontract.org/2004/07/DataRepository.Models")]
-    public enum Language : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        English = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Russian = 1,
-    }
-    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="StateData", Namespace="http://schemas.datacontract.org/2004/07/StrategyServices.States")]
@@ -170,10 +159,10 @@ namespace SA.VisualizationSystem.StatesReference {
     public interface IStateService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStateService/GetStatesByLanguage", ReplyAction="http://tempuri.org/IStateService/GetStatesByLanguageResponse")]
-        SA.VisualizationSystem.StatesReference.StateData[] GetStatesByLanguage(SA.VisualizationSystem.StatesReference.Language lang);
+        SA.VisualizationSystem.StatesReference.StateData[] GetStatesByLanguage(int languageId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStateService/GetStatesByLanguage", ReplyAction="http://tempuri.org/IStateService/GetStatesByLanguageResponse")]
-        System.Threading.Tasks.Task<SA.VisualizationSystem.StatesReference.StateData[]> GetStatesByLanguageAsync(SA.VisualizationSystem.StatesReference.Language lang);
+        System.Threading.Tasks.Task<SA.VisualizationSystem.StatesReference.StateData[]> GetStatesByLanguageAsync(int languageId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStateService/GetStates", ReplyAction="http://tempuri.org/IStateService/GetStatesResponse")]
         SA.VisualizationSystem.StatesReference.StateData[] GetStates();
@@ -227,12 +216,12 @@ namespace SA.VisualizationSystem.StatesReference {
                 base(binding, remoteAddress) {
         }
         
-        public SA.VisualizationSystem.StatesReference.StateData[] GetStatesByLanguage(SA.VisualizationSystem.StatesReference.Language lang) {
-            return base.Channel.GetStatesByLanguage(lang);
+        public SA.VisualizationSystem.StatesReference.StateData[] GetStatesByLanguage(int languageId) {
+            return base.Channel.GetStatesByLanguage(languageId);
         }
         
-        public System.Threading.Tasks.Task<SA.VisualizationSystem.StatesReference.StateData[]> GetStatesByLanguageAsync(SA.VisualizationSystem.StatesReference.Language lang) {
-            return base.Channel.GetStatesByLanguageAsync(lang);
+        public System.Threading.Tasks.Task<SA.VisualizationSystem.StatesReference.StateData[]> GetStatesByLanguageAsync(int languageId) {
+            return base.Channel.GetStatesByLanguageAsync(languageId);
         }
         
         public SA.VisualizationSystem.StatesReference.StateData[] GetStates() {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="L9wDyU+7DZyrH3BRTt893K0Jb68=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="GOc7J4CC4/TMEGli2xZDvqeiFrA=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IBusinessService">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IBusinessService" contract="BusinessesReference.IBusinessService" bindingType="basicHttpBinding" address="http://178.216.124.224/WCF/businesses.svc" bindingConfiguration="BasicHttpBinding_IBusinessService">
+    <endpoint name="BasicHttpBinding_IBusinessService" contract="BusinessesReference.IBusinessService" bindingType="basicHttpBinding" address="http://127.0.0.1/WCF/businesses.svc" bindingConfiguration="BasicHttpBinding_IBusinessService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://178.216.124.224/WCF/businesses.svc</serializedValue>
+          <serializedValue>http://127.0.0.1/WCF/businesses.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

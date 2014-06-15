@@ -159,6 +159,18 @@
     <None Include="Service References\StatesReference\SA.VisualizationSystem.StatesReference.StateData.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\StatesReference\states.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\StatesReference\states1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\StatesReference\states2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\StatesReference\states3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\StatesReference\StateService.wsdl" />
   </ItemGroup>
   <ItemGroup>
@@ -174,6 +186,9 @@
     <WCFMetadataStorage Include="Service References\BusinessesReference\" />
     <WCFMetadataStorage Include="Service References\RegionsReference\" />
     <WCFMetadataStorage Include="Service References\StatesReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\StatesReference\states.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\StatesReference\configuration91.svcinfo" />

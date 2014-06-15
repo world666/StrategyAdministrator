@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="471cd5c9-8fe9-4be5-a4ba-06611c685265" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="62b0df9a-073a-4534-8bf5-d92332782d5a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,10 +19,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://178.216.124.224/WCF/businesses.svc?singleWsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://127.0.0.1/WCF/businesses.svc?singleWsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="BusinessService.wsdl" MetadataType="Wsdl" ID="e13b0b57-4c10-4f2e-9a9b-b4aec783a9d6" SourceId="1" SourceUrl="http://178.216.124.224/WCF/businesses.svc?singleWsdl" />
+    <MetadataFile FileName="BusinessService.wsdl" MetadataType="Wsdl" ID="9035bc66-5b2a-4aec-a35f-42a9cc3b41c0" SourceId="1" SourceUrl="http://127.0.0.1/WCF/businesses.svc?singleWsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

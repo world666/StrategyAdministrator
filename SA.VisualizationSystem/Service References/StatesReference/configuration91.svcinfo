@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="MXqrzQ0U9SqHsMFNEEZARb4os2o=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="h9s/B5QdOGpBIBt/ulktd7Z4ZPc=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IStateService">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IStateService" contract="StatesReference.IStateService" bindingType="basicHttpBinding" address="http://178.216.124.224/WCF/states.svc" bindingConfiguration="BasicHttpBinding_IStateService">
+    <endpoint name="BasicHttpBinding_IStateService" contract="StatesReference.IStateService" bindingType="basicHttpBinding" address="http://127.0.0.1/WCF/states.svc" bindingConfiguration="BasicHttpBinding_IStateService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://178.216.124.224/WCF/states.svc</serializedValue>
+          <serializedValue>http://127.0.0.1/WCF/states.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

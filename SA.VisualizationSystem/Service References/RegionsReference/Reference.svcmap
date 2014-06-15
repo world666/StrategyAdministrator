@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4f9b7fcf-3376-4031-b3eb-1ad830981124" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4c60b672-7770-472f-98c5-15bcb6ef6f4d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,10 +19,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://178.216.124.224/WCF/regions.svc?singleWsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://127.0.0.1/WCF/regions.svc?singleWsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="RegionService.wsdl" MetadataType="Wsdl" ID="0aa6486e-6509-4dfc-9573-253665ee7112" SourceId="1" SourceUrl="http://178.216.124.224/WCF/regions.svc?singleWsdl" />
+    <MetadataFile FileName="RegionService.wsdl" MetadataType="Wsdl" ID="85f0b639-591f-4743-b8b5-adb9d3d81e5a" SourceId="1" SourceUrl="http://127.0.0.1/WCF/regions.svc?singleWsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
