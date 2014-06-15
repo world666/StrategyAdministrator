@@ -55,6 +55,7 @@ namespace SA.VisualizationSystem.ViewModel
                 _regionServiceClient.DeleteRegions(deleteRegionList);
                 _regionServiceClient.EditRegions(editRegionList);
                 _regionServiceClient.Close();
+                Initialization();
                 MessageBox.Show("All changes were successfully accepted");
             }
             catch (Exception ex)
@@ -65,6 +66,8 @@ namespace SA.VisualizationSystem.ViewModel
 
         private void FindClickHandler()
         {
+            if(CurrentStateName == null)
+                return;
             ViewRegionsList.Clear();
             _regionServiceClient = new RegionServiceClient();
             _regionServiceClient.Open();

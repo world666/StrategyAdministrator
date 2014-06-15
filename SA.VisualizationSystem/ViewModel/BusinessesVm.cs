@@ -55,6 +55,7 @@ namespace SA.VisualizationSystem.ViewModel
                 _businessServiceClient.DeleteBusinesses(deleteBusinessList);
                 _businessServiceClient.EditBusinesses(editBusinessList);
                 _businessServiceClient.Close();
+                Initialization();
                 MessageBox.Show("All changes were successfully accepted");
             }
             catch (Exception ex)

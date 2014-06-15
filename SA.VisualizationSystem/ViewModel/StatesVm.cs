@@ -37,6 +37,7 @@ namespace SA.VisualizationSystem.ViewModel
                 _statesServiceClient.DeleteStates(deleteStateList);
                 _statesServiceClient.EditStates(editStateList);
                 _statesServiceClient.Close();
+                Initialization();
                 MessageBox.Show("All changes were successfully accepted");
             }
             catch (Exception ex)
