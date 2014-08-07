@@ -26,6 +26,8 @@
                           Command="{Binding MenuClick}" CommandParameter="RegionsView"/>
                 <MenuItem Header="Businesses" VerticalAlignment="Center" Width="Auto"
                           Command="{Binding MenuClick}" CommandParameter="BusinessesView"/>
+                <MenuItem Header="Languages" VerticalAlignment="Center" Width="Auto"
+                          Command="{Binding MenuClick}" CommandParameter="LanguagesView"/>
             </MenuItem>
         </Menu>
 
@@ -39,6 +41,9 @@
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type loc:BusinessesVm}">
                     <view:BusinessesView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type loc:LanguagesVm}">
+                    <view:LanguagesView/>
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>

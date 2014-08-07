@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LanguageService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/StrategyServices.Languages" />
+      <xs:element name="GetLanguages">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetLanguagesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetLanguagesResult" nillable="true" type="q1:ArrayOfstring" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetLanguagesCount">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetLanguagesCountResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetLanguagesCountResult" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetLanguagesList">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetLanguagesListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/StrategyServices.Languages" minOccurs="0" name="GetLanguagesListResult" nillable="true" type="q2:ArrayOfLanguageData" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddLanguages">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/StrategyServices.Languages" minOccurs="0" name="newLanguages" nillable="true" type="q3:ArrayOfLanguageData" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddLanguagesResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="EditLanguages">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/StrategyServices.Languages" minOccurs="0" name="languagesList" nillable="true" type="q4:ArrayOfLanguageData" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="EditLanguagesResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteLanguages">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="languageIds" nillable="true" type="q5:ArrayOfint" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteLanguagesResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfstring">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
+      <xs:complexType name="ArrayOfint">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="int" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfint" nillable="true" type="tns:ArrayOfint" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/StrategyServices.Languages" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/StrategyServices.Languages" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfLanguageData">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="LanguageData" nillable="true" type="tns:LanguageData" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfLanguageData" nillable="true" type="tns:ArrayOfLanguageData" />
+      <xs:complexType name="LanguageData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="LanguageName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="LanguageData" nillable="true" type="tns:LanguageData" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ILanguageService_GetLanguages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLanguages" />
+  </wsdl:message>
+  <wsdl:message name="ILanguageService_GetLanguages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLanguagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILanguageService_GetLanguagesCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLanguagesCount" />
+  </wsdl:message>
+  <wsdl:message name="ILanguageService_GetLanguagesCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLanguagesCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILanguageService_GetLanguagesList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLanguagesList" />
+  </wsdl:message>
+  <wsdl:message name="ILanguageService_GetLanguagesList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLanguagesListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILanguageService_AddLanguages_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddLanguages" />
+  </wsdl:message>
+  <wsdl:message name="ILanguageService_AddLanguages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddLanguagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILanguageService_EditLanguages_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditLanguages" />
+  </wsdl:message>
+  <wsdl:message name="ILanguageService_EditLanguages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditLanguagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILanguageService_DeleteLanguages_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLanguages" />
+  </wsdl:message>
+  <wsdl:message name="ILanguageService_DeleteLanguages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLanguagesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ILanguageService">
+    <wsdl:operation name="GetLanguages">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILanguageService/GetLanguages" message="tns:ILanguageService_GetLanguages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILanguageService/GetLanguagesResponse" message="tns:ILanguageService_GetLanguages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguagesCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILanguageService/GetLanguagesCount" message="tns:ILanguageService_GetLanguagesCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILanguageService/GetLanguagesCountResponse" message="tns:ILanguageService_GetLanguagesCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguagesList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILanguageService/GetLanguagesList" message="tns:ILanguageService_GetLanguagesList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILanguageService/GetLanguagesListResponse" message="tns:ILanguageService_GetLanguagesList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddLanguages">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILanguageService/AddLanguages" message="tns:ILanguageService_AddLanguages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILanguageService/AddLanguagesResponse" message="tns:ILanguageService_AddLanguages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditLanguages">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILanguageService/EditLanguages" message="tns:ILanguageService_EditLanguages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILanguageService/EditLanguagesResponse" message="tns:ILanguageService_EditLanguages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLanguages">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILanguageService/DeleteLanguages" message="tns:ILanguageService_DeleteLanguages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILanguageService/DeleteLanguagesResponse" message="tns:ILanguageService_DeleteLanguages_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ILanguageService" type="tns:ILanguageService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLanguages">
+      <soap:operation soapAction="http://tempuri.org/ILanguageService/GetLanguages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguagesCount">
+      <soap:operation soapAction="http://tempuri.org/ILanguageService/GetLanguagesCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguagesList">
+      <soap:operation soapAction="http://tempuri.org/ILanguageService/GetLanguagesList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddLanguages">
+      <soap:operation soapAction="http://tempuri.org/ILanguageService/AddLanguages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditLanguages">
+      <soap:operation soapAction="http://tempuri.org/ILanguageService/EditLanguages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLanguages">
+      <soap:operation soapAction="http://tempuri.org/ILanguageService/DeleteLanguages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LanguageService">
+    <wsdl:port name="BasicHttpBinding_ILanguageService" binding="tns:BasicHttpBinding_ILanguageService">
+      <soap:address location="http://127.0.0.1/WCF/languages.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

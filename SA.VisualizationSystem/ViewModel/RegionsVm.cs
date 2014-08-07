@@ -59,7 +59,7 @@ namespace SA.VisualizationSystem.ViewModel
             }
             catch (Exception ex)
             {
-                MessageBox.Show(string.Format("Eroor : {0}", ex.Message));
+                MessageBox.Show(string.Format("Error : {0}", ex.Message));
             }
         }
 

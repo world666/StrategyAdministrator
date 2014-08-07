@@ -75,6 +75,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\LanguagesReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\RegionsReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -87,11 +92,15 @@
     </Compile>
     <Compile Include="Services\IoC.cs" />
     <Compile Include="ViewModel\BusinessesVm.cs" />
+    <Compile Include="ViewModel\LanguagesVm.cs" />
     <Compile Include="ViewModel\RegionsVm.cs" />
     <Compile Include="ViewModel\StatesVm.cs" />
     <Compile Include="ViewModel\MainVm.cs" />
     <Compile Include="View\BusinessesView.xaml.cs">
       <DependentUpon>BusinessesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LanguagesView.xaml.cs">
+      <DependentUpon>LanguagesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\RegionsView.xaml.cs">
       <DependentUpon>RegionsView.xaml</DependentUpon>
@@ -112,6 +121,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\BusinessesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LanguagesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -152,24 +165,16 @@
     <None Include="Service References\BusinessesReference\SA.VisualizationSystem.BusinessesReference.BusinessData.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\LanguagesReference\LanguageService.wsdl" />
+    <None Include="Service References\LanguagesReference\SA.VisualizationSystem.LanguagesReference.LanguageData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\RegionsReference\RegionService.wsdl" />
     <None Include="Service References\RegionsReference\SA.VisualizationSystem.RegionsReference.RegionData.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\StatesReference\SA.VisualizationSystem.StatesReference.StateData.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\StatesReference\states.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\StatesReference\states1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\StatesReference\states2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\StatesReference\states3.xsd">
-      <SubType>Designer</SubType>
     </None>
     <None Include="Service References\StatesReference\StateService.wsdl" />
   </ItemGroup>
@@ -184,11 +189,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\BusinessesReference\" />
+    <WCFMetadataStorage Include="Service References\LanguagesReference\" />
     <WCFMetadataStorage Include="Service References\RegionsReference\" />
     <WCFMetadataStorage Include="Service References\StatesReference\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\StatesReference\states.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\StatesReference\configuration91.svcinfo" />
@@ -222,6 +225,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\BusinessesReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LanguagesReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LanguagesReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LanguagesReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
