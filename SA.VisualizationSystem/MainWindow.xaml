@@ -20,19 +20,24 @@
         <Menu FontSize="20" VerticalAlignment="Top" Grid.Row="0" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
             <MenuItem Header="FILE"/>
             <MenuItem Header="TABLES">
+                <MenuItem Header="Languages" VerticalAlignment="Center" Width="Auto"
+                          Command="{Binding MenuClick}" CommandParameter="LanguagesView"/>
                 <MenuItem Header="States" VerticalAlignment="Center" Width="Auto"
                           Command="{Binding MenuClick}" CommandParameter="StatesView"/>
                 <MenuItem Header="Regions" VerticalAlignment="Center" Width="Auto"
                           Command="{Binding MenuClick}" CommandParameter="RegionsView"/>
                 <MenuItem Header="Businesses" VerticalAlignment="Center" Width="Auto"
                           Command="{Binding MenuClick}" CommandParameter="BusinessesView"/>
-                <MenuItem Header="Languages" VerticalAlignment="Center" Width="Auto"
-                          Command="{Binding MenuClick}" CommandParameter="LanguagesView"/>
+                <MenuItem Header="Actions" VerticalAlignment="Center" Width="Auto"
+                          Command="{Binding MenuClick}" CommandParameter="ActionsView"/>
             </MenuItem>
         </Menu>
 
         <ContentControl Grid.Row="1" Content="{Binding CurrentView}">
             <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type loc:LanguagesVm}">
+                    <view:LanguagesView/>
+                </DataTemplate>
                 <DataTemplate DataType="{x:Type loc:StatesVm}">
                     <view:StatesView/>
                 </DataTemplate>
@@ -42,8 +47,8 @@
                 <DataTemplate DataType="{x:Type loc:BusinessesVm}">
                     <view:BusinessesView/>
                 </DataTemplate>
-                <DataTemplate DataType="{x:Type loc:LanguagesVm}">
-                    <view:LanguagesView/>
+                <DataTemplate DataType="{x:Type loc:ActionsVm}">
+                    <view:ActionsView/>
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>

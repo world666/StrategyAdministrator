@@ -36,14 +36,16 @@ namespace SA.VisualizationSystem.ViewModel
         {
             var menuStr = t as string;
 
+            if (menuStr.Equals("LanguagesView", StringComparison.InvariantCulture))
+                CurrentView = IoC.Resolve<LanguagesVm>();
             if (menuStr.Equals("StatesView", StringComparison.InvariantCulture))
                 CurrentView = IoC.Resolve<StatesVm>();
             if (menuStr.Equals("RegionsView", StringComparison.InvariantCulture))
                 CurrentView = IoC.Resolve<RegionsVm>();
             if (menuStr.Equals("BusinessesView", StringComparison.InvariantCulture))
                 CurrentView = IoC.Resolve<BusinessesVm>();
-            if (menuStr.Equals("LanguagesView", StringComparison.InvariantCulture))
-                CurrentView = IoC.Resolve<LanguagesVm>();
+            if (menuStr.Equals("ActionsView", StringComparison.InvariantCulture))
+                CurrentView = IoC.Resolve<ActionsVm>();
         }
 
         private object _currentView;

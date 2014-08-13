@@ -70,6 +70,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Service References\ActionsReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\BusinessesReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -91,11 +96,15 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Services\IoC.cs" />
+    <Compile Include="ViewModel\ActionsVm.cs" />
     <Compile Include="ViewModel\BusinessesVm.cs" />
     <Compile Include="ViewModel\LanguagesVm.cs" />
     <Compile Include="ViewModel\RegionsVm.cs" />
     <Compile Include="ViewModel\StatesVm.cs" />
     <Compile Include="ViewModel\MainVm.cs" />
+    <Compile Include="View\ActionsView.xaml.cs">
+      <DependentUpon>ActionsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\BusinessesView.xaml.cs">
       <DependentUpon>BusinessesView.xaml</DependentUpon>
     </Compile>
@@ -120,6 +129,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\ActionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\BusinessesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -161,6 +174,10 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Service References\ActionsReference\ActionService.wsdl" />
+    <None Include="Service References\ActionsReference\SA.VisualizationSystem.ActionsReference.ActionData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\BusinessesReference\BusinessService.wsdl" />
     <None Include="Service References\BusinessesReference\SA.VisualizationSystem.BusinessesReference.BusinessData.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -188,6 +205,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ActionsReference\" />
     <WCFMetadataStorage Include="Service References\BusinessesReference\" />
     <WCFMetadataStorage Include="Service References\LanguagesReference\" />
     <WCFMetadataStorage Include="Service References\RegionsReference\" />
@@ -237,6 +255,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\LanguagesReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ActionsReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ActionsReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ActionsReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

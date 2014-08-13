@@ -76,7 +76,7 @@ namespace SA.VisualizationSystem.ViewModel
             {
                 ViewRegionsList.Add(region);
             }
-            _statesServiceClient.Close();
+            _regionServiceClient.Close();
         }
 
 

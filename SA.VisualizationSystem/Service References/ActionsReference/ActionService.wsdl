@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ActionService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/StrategyServices.Actions" />
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xs:element name="GetActionsByLanguage">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="languageId" type="xs:int" />
+            <xs:element minOccurs="0" name="businessId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetActionsByLanguageResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/StrategyServices.Actions" minOccurs="0" name="GetActionsByLanguageResult" nillable="true" type="q1:ArrayOfActionData" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetActions">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="businessId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetActionsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/StrategyServices.Actions" minOccurs="0" name="GetActionsResult" nillable="true" type="q2:ArrayOfActionData" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddActions">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/StrategyServices.Actions" minOccurs="0" name="newActions" nillable="true" type="q3:ArrayOfActionData" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddActionsResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="EditActions">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/StrategyServices.Actions" minOccurs="0" name="actions" nillable="true" type="q4:ArrayOfActionData" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="EditActionsResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteActions">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="actionsIds" nillable="true" type="q5:ArrayOfint" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteActionsResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/StrategyServices.Actions" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/StrategyServices.Actions" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xs:complexType name="ArrayOfActionData">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ActionData" nillable="true" type="tns:ActionData" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfActionData" nillable="true" type="tns:ArrayOfActionData" />
+      <xs:complexType name="ActionData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BusinessId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Descriptions" nillable="true" type="xs:string" />
+          <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DescriptionsList" nillable="true" type="q1:ArrayOfstring" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ActionData" nillable="true" type="tns:ActionData" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfstring">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
+      <xs:complexType name="ArrayOfint">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="int" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfint" nillable="true" type="tns:ArrayOfint" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IActionService_GetActionsByLanguage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActionsByLanguage" />
+  </wsdl:message>
+  <wsdl:message name="IActionService_GetActionsByLanguage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActionsByLanguageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActionService_GetActions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActions" />
+  </wsdl:message>
+  <wsdl:message name="IActionService_GetActions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActionService_AddActions_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddActions" />
+  </wsdl:message>
+  <wsdl:message name="IActionService_AddActions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddActionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActionService_EditActions_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditActions" />
+  </wsdl:message>
+  <wsdl:message name="IActionService_EditActions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditActionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IActionService_DeleteActions_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteActions" />
+  </wsdl:message>
+  <wsdl:message name="IActionService_DeleteActions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteActionsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IActionService">
+    <wsdl:operation name="GetActionsByLanguage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActionService/GetActionsByLanguage" message="tns:IActionService_GetActionsByLanguage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActionService/GetActionsByLanguageResponse" message="tns:IActionService_GetActionsByLanguage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActionService/GetActions" message="tns:IActionService_GetActions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActionService/GetActionsResponse" message="tns:IActionService_GetActions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddActions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActionService/AddActions" message="tns:IActionService_AddActions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActionService/AddActionsResponse" message="tns:IActionService_AddActions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditActions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActionService/EditActions" message="tns:IActionService_EditActions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActionService/EditActionsResponse" message="tns:IActionService_EditActions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteActions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IActionService/DeleteActions" message="tns:IActionService_DeleteActions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IActionService/DeleteActionsResponse" message="tns:IActionService_DeleteActions_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IActionService" type="tns:IActionService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetActionsByLanguage">
+      <soap:operation soapAction="http://tempuri.org/IActionService/GetActionsByLanguage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActions">
+      <soap:operation soapAction="http://tempuri.org/IActionService/GetActions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddActions">
+      <soap:operation soapAction="http://tempuri.org/IActionService/AddActions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditActions">
+      <soap:operation soapAction="http://tempuri.org/IActionService/EditActions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteActions">
+      <soap:operation soapAction="http://tempuri.org/IActionService/DeleteActions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ActionService">
+    <wsdl:port name="BasicHttpBinding_IActionService" binding="tns:BasicHttpBinding_IActionService">
+      <soap:address location="http://127.0.0.1/WCF/actions.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -8,19 +8,21 @@ using System.Windows;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using SA.VisualizationSystem.ActionsReference;
 using SA.VisualizationSystem.BusinessesReference;
 using SA.VisualizationSystem.RegionsReference;
 using SA.VisualizationSystem.StatesReference;
 
 namespace SA.VisualizationSystem.ViewModel
 {
-    class BusinessesVm : ViewModelBase
+    class ActionsVm : ViewModelBase
     {
-        public BusinessesVm()
+        public ActionsVm()
         {
             StatesNames = new ObservableCollection<string>();
             RegionsNames = new ObservableCollection<string>();
-            ViewBusinessList = new ObservableCollection<BusinessData>();
+            BusinessesNames = new ObservableCollection<string>();
+            ViewActionsList = new ObservableCollection<ActionData>();
             Initialization();
         }
         private void Initialization()
@@ -40,20 +42,17 @@ namespace SA.VisualizationSystem.ViewModel
         {
             try
             {
-                var addBusinessList = ViewBusinessList.Where(rg => rg.Id == 0).ToList();
-                addBusinessList.ForEach(b => b.RegionId = _regionsList.Find(rg => rg.RegionsNames == CurrentRegionName).Id); // add state id to each ereocrd
-                var deleteBusinessList =
-                    _prevBusinessList.Where(pr => ViewBusinessList.All(v => pr.Id != v.Id)).Select(b => b.Id).ToArray();
-                var editBusinessList =
-                    ViewBusinessList.Where(b => b.Id != 0 && !b.BusinessEquals(_prevBusinessList.First(p => p.Id == b.Id)))
-                        .ToArray();
+                var addActionList = ViewActionsList.Where(a => a.Id == 0).ToList();
+                addActionList.ForEach(a => a.BusinessId = _businessesList.Find(b=> b.BusinessesNames == CurrentBusinessName).Id); // add business id to each record
+                var deleteActionList = _prevActionList.Where(pr => ViewActionsList.All(v => pr.Id != v.Id)).Select(a => a.Id).ToArray();
+                var editActionsList = ViewActionsList.Where(a => a.Id != 0 && !a.ActionEquals(_prevActionList.First(p => p.Id == a.Id))).ToArray();
 
-                _businessServiceClient = new BusinessServiceClient();
-                _businessServiceClient.Open();
-                _businessServiceClient.AddBusinesses(addBusinessList.ToArray());
-                _businessServiceClient.DeleteBusinesses(deleteBusinessList);
-                _businessServiceClient.EditBusinesses(editBusinessList);
-                _businessServiceClient.Close();
+                _actionServiceClient = new ActionServiceClient();
+                _actionServiceClient.Open();
+                _actionServiceClient.AddActions(addActionList.ToArray());
+                _actionServiceClient.DeleteActions(deleteActionList);
+                _actionServiceClient.EditActions(editActionsList);
+                _actionServiceClient.Close();
                 Initialization();
                 MessageBox.Show("All changes were successfully accepted");
             }
@@ -65,18 +64,18 @@ namespace SA.VisualizationSystem.ViewModel
 
         private void FindClickHandler()
         {
-            if(CurrentRegionName == null)
+            if(CurrentBusinessName == null)
                 return;
-            ViewBusinessList.Clear();
-            _businessServiceClient = new BusinessServiceClient();
-            _businessServiceClient.Open();
-            _prevBusinessList = _businessServiceClient.GetBusinesses(_regionsList.First(rg => rg.RegionsNames == CurrentRegionName).Id).ToList();
-            var businesses = _businessServiceClient.GetBusinesses(_regionsList.First(rg => rg.RegionsNames == CurrentRegionName).Id).ToList();
-            foreach (var business in businesses)
+            ViewActionsList.Clear();
+            _actionServiceClient = new ActionServiceClient();
+            _actionServiceClient.Open();
+            _prevActionList = _actionServiceClient.GetActions(_businessesList.First(b => b.BusinessesNames == CurrentBusinessName).Id).ToList();
+            var actions = _actionServiceClient.GetActions(_businessesList.First(b => b.BusinessesNames == CurrentBusinessName).Id).ToList();
+            foreach (var action in actions)
             {
-                ViewBusinessList.Add(business);
+                ViewActionsList.Add(action);
             }
-            _businessServiceClient.Close();
+            _actionServiceClient.Close();
         }
 
         private void CurrentStateChangedHandler()
@@ -88,7 +87,7 @@ namespace SA.VisualizationSystem.ViewModel
                 _statesList.Find(st => st.StatesNames == CurrentStateName).Id).ToList();
             if (_regionsList.Count == 0)
             {
-                ViewBusinessList.Clear();
+                ViewActionsList.Clear();
                 return;
             }
             foreach (var region in _regionsList)
@@ -97,6 +96,26 @@ namespace SA.VisualizationSystem.ViewModel
             }
             CurrentRegionName = RegionsNames.First();
             _regionServiceClient.Close();
+        }
+
+        private void CurrentRegionChangedHandler()
+        {
+            BusinessesNames.Clear();
+            _businessServiceClient = new BusinessServiceClient();
+            _businessServiceClient.Open();
+            _businessesList = _businessServiceClient.GetBusinessesByLanguage(1,
+                _regionsList.Find(rg => rg.RegionsNames == CurrentRegionName).Id).ToList();
+            if (_businessesList.Count == 0)
+            {
+                ViewActionsList.Clear();
+                return;
+            }
+            foreach (var business in _businessesList)
+            {
+                BusinessesNames.Add(business.BusinessesNames);
+            }
+            CurrentBusinessName = BusinessesNames.First();
+            _businessServiceClient.Close();
         }
 
 
@@ -109,6 +128,8 @@ namespace SA.VisualizationSystem.ViewModel
         public static ObservableCollection<string> StatesNames { get; set; }
 
         public static ObservableCollection<string> RegionsNames { get; set; }
+
+        public static ObservableCollection<string> BusinessesNames { get; set; }
 
 
         private string _currentStateName;
@@ -131,33 +152,46 @@ namespace SA.VisualizationSystem.ViewModel
             set
             {
                 _currentRegionName = value;
-                FindClickHandler();
+                CurrentRegionChangedHandler();
                 RaisePropertyChanged("CurrentRegionName");
             }
         }
 
-        public ObservableCollection<BusinessData> ViewBusinessList { get; set; }
+        private string _currentBusinessName;
+        public string CurrentBusinessName
+        {
+            get { return _currentBusinessName; }
+            set
+            {
+                _currentBusinessName = value;
+                FindClickHandler();
+                RaisePropertyChanged("CurrentBusinessName");
+            }
+        }
+
+        public ObservableCollection<ActionData> ViewActionsList { get; set; }
 
 
 
         private List<StateData> _statesList;
         private List<RegionData> _regionsList;
+        private List<BusinessData> _businessesList;
 
-        private List<BusinessData> _prevBusinessList;
+        private List<ActionData> _prevActionList;
 
         private RelayCommand _saveClickCommand;
 
         private StateServiceClient _statesServiceClient;
         private RegionServiceClient _regionServiceClient;
         private BusinessServiceClient _businessServiceClient;
-
+        private ActionServiceClient _actionServiceClient;
     }
 
-    static class ExtensionClassBusinesses
+    static class ExtensionClassActions
     {
-        public static bool BusinessEquals(this BusinessData b1, BusinessData b2)
+        public static bool ActionEquals(this ActionData a1, ActionData a2)
         {
-            if (!b1.BusinessesNames.Equals(b2.BusinessesNames) || !b1.Descriptions.Equals(b2.Descriptions) ||!b1.Addresses.Equals(b2.Addresses))
+            if (!a1.Descriptions.Equals(a2.Descriptions))
                 return false;
             return true;
         }
