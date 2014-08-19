@@ -80,6 +80,8 @@ namespace SA.VisualizationSystem.ViewModel
 
         private void CurrentStateChangedHandler()
         {
+            if(CurrentStateName == null)
+                return;
             RegionsNames.Clear();
             _regionServiceClient = new RegionServiceClient();
             _regionServiceClient.Open();
@@ -100,6 +102,8 @@ namespace SA.VisualizationSystem.ViewModel
 
         private void CurrentRegionChangedHandler()
         {
+            if (CurrentRegionName == null)
+                return;
             BusinessesNames.Clear();
             _businessServiceClient = new BusinessServiceClient();
             _businessServiceClient.Open();

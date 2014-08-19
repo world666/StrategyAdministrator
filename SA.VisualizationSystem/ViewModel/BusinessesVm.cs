@@ -81,6 +81,8 @@ namespace SA.VisualizationSystem.ViewModel
 
         private void CurrentStateChangedHandler()
         {
+            if (CurrentStateName == null)
+                return;
             RegionsNames.Clear();
             _regionServiceClient = new RegionServiceClient();
             _regionServiceClient.Open();

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e8a5457f-b13a-4cc4-821a-170a4df69cad" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7370d74b-9916-4136-8485-d9b7de3ffaba" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,7 +22,7 @@
     <MetadataSource Address="http://127.0.0.1/WCF/states.svc?singleWsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="StateService.wsdl" MetadataType="Wsdl" ID="0db28f06-a7ad-4d48-a13f-815c4a7629c5" SourceId="1" SourceUrl="http://127.0.0.1/WCF/states.svc?singleWsdl" />
+    <MetadataFile FileName="StateService.wsdl" MetadataType="Wsdl" ID="af867490-ecdc-48bd-818b-01615f6287d3" SourceId="1" SourceUrl="http://127.0.0.1/WCF/states.svc?singleWsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
